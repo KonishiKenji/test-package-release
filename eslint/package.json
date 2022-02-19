@@ -1,0 +1,28 @@
+{
+  "name": "eslint-config",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "license": "UNLICENSED",
+  "author": "",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:KonishiKenji/test-package-release.git"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">=5.3.1",
+    "@typescript-eslint/parser": ">=5.3.1",
+    "eslint": ">=8.2.0",
+    "eslint-config-prettier": ">=8.3.0",
+    "eslint-plugin-filenames": ">=1.3.2",
+    "eslint-plugin-import": ">=2.25.3",
+    "eslint-plugin-jest": ">=25.2.4",
+    "eslint-plugin-prettier": ">=4.0.0",
+    "eslint-plugin-sort-imports-es6-autofix": ">=0.6.0",
+    "eslint-plugin-tsdoc": ">=0.2.14"
+  }
+}

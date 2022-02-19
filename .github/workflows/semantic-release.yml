@@ -1,0 +1,44 @@
+name: semantic-release
+on:
+  push:
+    branches:
+      - main
+      - beta-release
+
+jobs:
+  semantic-release:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        package_name:
+          [
+            # 'commitlint',
+            'eslint',
+            # 'prettier',
+            # 'renovate',
+            # 'semantic-release',
+            # 'semantic-release-monorepo',
+            # 'tsconfig',
+          ]
+    env:
+      packages_token: ${{ secrets.packages_token }}
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup-node
+        uses: actions/setup-node@v2
+        with:
+          cache: npm
+          node-version: 16
+      - name: npm ci
+        run: npm ci
+
+      - name: semantic release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.packages_token }}
+        run: |
+          cd ${{ matrix.package_name }}
+          npx semantic-release
